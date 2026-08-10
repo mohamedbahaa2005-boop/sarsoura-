@@ -379,11 +379,44 @@ button:active {
     }
 }
 
-#noBtn {
-    background: #777;
-    margin-top: 12px;
+/* -------------------------
+   Runaway Button
+------------------------- */
+
+.button-area {
     position: relative;
-    transition: all 0.2s ease;
+    width: 100%;
+    height: 160px;
+    margin-top: 25px;
+    overflow: visible;
+}
+
+#forgiveBtn {
+    position: absolute;
+    left: 50%;
+    top: 0;
+
+    transform: translateX(-50%);
+
+    z-index: 2;
+    white-space: nowrap;
+}
+
+#noBtn {
+    position: absolute;
+
+    left: 50%;
+    top: 70px;
+
+    transform: translateX(-50%);
+
+    background: #777;
+
+    z-index: 3;
+
+    white-space: nowrap;
+
+    transition: left 0.2s ease, top 0.2s ease;
 }
 
 #noBtn:hover {
