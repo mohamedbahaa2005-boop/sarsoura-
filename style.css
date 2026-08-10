@@ -132,7 +132,7 @@ button:active {
 }
 
 .message.show {
-    max-height: 900px;
+    max-height: 2000px;
 
     opacity: 1;
 
