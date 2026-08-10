@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You Sarsoura ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+
+<body>
+
+    <div class="hearts">
+        <span>❤️</span>
+        <span>💗</span>
+        <span>💕</span>
+        <span>❤️</span>
+        <span>💖</span>
+        <span>💗</span>
+        <span>🩷</span>
+    </div>
+
+    <main class="card">
+
+        <div class="emoji">🥺</div>
+
+        <h1>Hey Sarsoura...</h1>
+
+        <p class="subtitle">
+            I think I owe you an apology.
+        </p>
+
+         <audio id="music" loop>
+         <source src="song.mp3" type="audio/mpeg">
+         </audio>
+
+        <button id="openBtn">
+            Open this ❤️
+        </button>
+
+        <div id="message" class="message">
+
+            <h2>Bosi ya 2amer 😭</h2>
+
+            <p>
+                ana 3aref 2een an nemt wa sebteek 
+                wa 2ehna bentkalem....
+
+            </p>
+
+            <p>
+                Wa 2aywa ...
+                <strong> deeh haraka wehasha 2awy menyy begad 😭</strong>
+            </p>
+
+            <p>
+                But I promise I wasn't ignoring you.
+                My brain just decided to shut down without asking me first.<br>
+                Wa i was having sooooooo much fuuun talking to you 😭<br>
+                but I guess my body had other plans for me 😭<br>
+                Ana 3aref 2enk 5ofti 3alay ☺️
+            </p>
+
+            <p>
+                I know that doesn't magically make it okay,
+                so...
+            </p>
+
+            <h2>I'm sorry 🩷❤️</h2>
+
+            <p>
+                And if I could've stayed awake just a little longer,
+                I would've.
+            </p>
+
+            <div class="divider"></div>
+
+            <p class="small">
+                Official statement:
+            </p>
+
+            <p class="official">
+                "I sincerely apologize for the unexpected
+                system shutdown during an active conversation."
+            </p>
+
+            <p class="small">
+                — Me, unfortunately 😭
+            </p>
+
+            <button id="forgiveBtn">
+                Okay... maybe I forgive you 🥺
+            </button>
+
+            <button id="noBtn">
+             I don't forgive you 😤
+            </button>
+
+            <p class="love-message">
+            And one last thing...
+            <br><br>
+            <strong>I love you, Sarsoura. ❤️</strong>
+            </p>
+
+            <p id="response"></p>
+
+        </div>
+
+    </main>
+
+    <script>
+        const openBtn = document.getElementById("openBtn");
+        const message = document.getElementById("message");
+        const forgiveBtn = document.getElementById("forgiveBtn");
+        const response = document.getElementById("response");
+        const music = document.getElementById("music");
+        const loveMessage = document.querySelector(".love-message");
+        const noBtn = document.getElementById("noBtn");
+        
+        
+       let escapeCount = 0;
+
+function escapeButton() {
+
+    escapeCount++;
+
+    // Change the text after a few attempts
+    if (escapeCount === 3) {
+        noBtn.innerHTML = "Salhenii ba2aaa pless 🥺🥺";
+    }
+
+    if (escapeCount === 6) {
+        noBtn.innerHTML = "Ana ma2darsh 3ala za3l Sarsouraaa😭";
+    }
+
+    const card = document.querySelector(".card");
+
+    const maxX = card.clientWidth - noBtn.offsetWidth - 20;
+    const maxY = card.clientHeight - noBtn.offsetHeight - 20;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    noBtn.style.position = "absolute";
+    noBtn.style.left = `${x}px`;
+    noBtn.style.top = `${y}px`;
+}
+
+noBtn.addEventListener("mouseenter", escapeButton);
+
+noBtn.addEventListener("touchstart", (event) => {
+    event.preventDefault();
+    escapeButton();
+});
+
+        openBtn.addEventListener("click", () => {
+
+            music.play();
+
+            message.classList.add("show");
+            openBtn.style.display = "none";
+
+        });
+
+        forgiveBtn.addEventListener("click", () => {
+            response.innerHTML = "YAY 😭❤️ I promise I'll try not to sleep mid-conversation again.";
+            forgiveBtn.style.display = "none";
+            
+
+            
+            loveMessage.classList.add("show");
+        });
+    </script>
+
+</body>
+</html>
