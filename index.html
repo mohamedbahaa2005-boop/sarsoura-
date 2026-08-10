@@ -131,28 +131,31 @@ function escapeButton() {
 
     escapeCount++;
 
-    // Change the text after a few attempts
     if (escapeCount === 3) {
-        noBtn.innerHTML = "Salhenii ba2aaa pless 🥺🥺";
+        noBtn.innerHTML = "PLEASE DON'T 😭";
     }
 
     if (escapeCount === 6) {
-        noBtn.innerHTML = "Ana ma2darsh 3ala za3l Sarsouraaa😭";
+        noBtn.innerHTML = "OKAY OKAY 😭";
     }
 
-    const card = document.querySelector(".card");
+    const area = document.querySelector(".button-area");
 
-    const maxX = card.clientWidth - noBtn.offsetWidth - 20;
-    const maxY = card.clientHeight - noBtn.offsetHeight - 20;
+    const padding = 10;
 
-    const x = Math.random() * maxX;
-    const y = Math.random() * maxY;
+    // Available space inside the button area
+    const maxX = area.clientWidth - noBtn.offsetWidth - (padding * 2);
+    const maxY = area.clientHeight - noBtn.offsetHeight - (padding * 2);
 
-    noBtn.style.position = "absolute";
+    // Random position, but never outside the area
+    const x = padding + Math.random() * Math.max(0, maxX);
+    const y = padding + Math.random() * Math.max(0, maxY);
+
+    noBtn.style.transform = "none";
+
     noBtn.style.left = `${x}px`;
     noBtn.style.top = `${y}px`;
 }
-
 noBtn.addEventListener("mouseenter", escapeButton);
 
 noBtn.addEventListener("touchstart", (event) => {
